@@ -17,16 +17,25 @@ class Node {
         return [... this.neighbors].map((node) => node.value).join(",");
     }
 
-    dfsPrint(space = "") {
+    bfsPrint(space = "") {
         if (!this.isVisited) {
             console.log(`${space} ${this.value}  (${this.neighborsAsString()})`);
             this.isVisited = true;
             for (let neighbor of this.neighbors) {
-                neighbor.dfsPrint(`${space}===`);
+                neighbor.bfsPrint(`${space}===`);
             }
         }
     }
 
+    dfsPrint(space = "") {
+        if (!this.isVisited) {
+            this.isVisited = true;
+            for (let neighbor of this.neighbors) {
+                neighbor.dfsPrint(`${space}===`);
+            }
+            console.log(`${space} ${this.value}  (${this.neighborsAsString()})`);
+        }
+    }
 
     get(value) {
         return this.value;

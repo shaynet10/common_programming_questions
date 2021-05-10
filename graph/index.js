@@ -18,3 +18,7 @@ console.log("Removing node item 5");
 graph.removeNode(root5);
 
 graph.print();
+
+console.log("DFS print");
+
+graph.printDfs();

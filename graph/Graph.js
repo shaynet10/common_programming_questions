@@ -42,6 +42,13 @@ class Graph {
     print() {
         this.noVisitAllNodes();
         for (let node of this.nodes) {
+            node.bfsPrint();
+        }
+    }
+
+    printDfs() {
+        this.noVisitAllNodes();
+        for (let node of this.nodes) {
             node.dfsPrint();
         }
     }
