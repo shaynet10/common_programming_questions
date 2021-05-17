@@ -1,0 +1,15 @@
+Stack from 2 queues
+====================
+
+c b a
+    -  
+
+q1   
+q2 c b a
+
+
+1. new value
+2. deque from current queue
+3. enque to where new value is entered
+
+

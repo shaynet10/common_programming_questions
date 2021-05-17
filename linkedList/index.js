@@ -19,3 +19,17 @@ console.log("Reverse to the list");
 linkedList.reverse();
 
 linkedList.print();
+
+console.log("Reverse  each 2 pairs in the list");
+linkedList.reverseForEachSecond();
+linkedList.print();
+
+console.log("Reverse  each 2 pairs in the list");
+linkedList.reverseForEachSecond();
+linkedList.print();
+
+console.log("Middle of list");
+linkedList.printMiddle();
+
+console.log("4'rd from end");
+linkedList.printNthFromEnd(4);
