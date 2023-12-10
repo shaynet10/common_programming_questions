@@ -1,15 +1,14 @@
-import 'cypress-clipboard';
+import { navBar } from '../support/commands';
 
-describe('clipbaord', () => {
+describe('real world io', () => {
     before(() => {
-        cy.visit('https://www.google.com/');
+        cy.visit('https://demo.realworld.io');
     });
     
-    it('test clipboard', () => {
-        cy.get('a').first().invoke('text').then(current => {
-            cy.wrap(current).copyToClipboard();
-            cy.copyFromClipboard().should('eq', current);
-        });
+    it('sanity tests', () => {
+        navBar.getHomeButton().should('be.visible');
+        navBar.getSignInButton().should('be.visible');
+        navBar.getSignUpButton().should('be.visible');
     });
 });
 
