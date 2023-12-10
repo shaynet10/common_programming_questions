@@ -1,23 +1,40 @@
 class Merge {
-    mergeSortedArrays(array1, array2) {
-        let results = [];
-        let array2Index = 0;
-        for (let array1Index = 0; array1Index < array1.length; array1Index++) {
-            while (array2[array2Index] < array1[array1Index]) {
-                results.push(array2[array2Index]);
-                array2Index++;
-                if (array2Index >= array2.length) {
-                    break;
-                }
+    // Left & Right are sorted, merge the results.
+    merge(left, right) {
+        const results = [];
+        let leftIndex = 0;
+        let rightIndex = 0;
+        while (leftIndex < left.length && rightIndex < right.length) {
+            if (left[leftIndex] < right[rightIndex]) {
+                results.push(left[leftIndex]);
+                leftIndex += 1;
+            } else {
+                results.push(right[rightIndex]);
+                rightIndex += 1;
             }
-            results.push(array1[array1Index]);
         }
-        while (array2Index < array2.length) {
-            results.push(array2[array2Index]);
-            array2Index++;
-        }
+
+        for (let leftRemainingsIndex = leftIndex; leftRemainingsIndex < left.length; leftRemainingsIndex += 1) {
+            results.push(left[leftRemainingsIndex]);
+        } 
+        for (let rightRemainingsIndex = rightIndex; rightRemainingsIndex < right.length; rightRemainingsIndex += 1) {
+            results.push(right[rightRemainingsIndex]);
+        } 
         return results;
-    } 
+    }
+
+
+    mergeSort(array) {
+        if (array.length <= 1) {
+            return array; // Sorted.
+        }
+        const middle = Math.round(array.length / 2);
+        const left = array.slice(0, middle);
+        const right = array.slice(middle); 
+        const leftSorted = this.mergeSort(left);
+        const rightSorted = this.mergeSort(right);
+        return this.merge(leftSorted, rightSorted);
+    }
 }
 
 module.exports = Merge;
