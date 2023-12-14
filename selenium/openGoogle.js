@@ -7,7 +7,7 @@ const {Builder, By, Key, until} = require('selenium-webdriver');
     const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
 
     // let driver = await new Builder().forBrowser('chrome').build();
-    let driver = await new Builder().forBrowser('firefox').build();
+    let driver = await new Builder().forBrowser('chrome').build();
     try {
         // Navigate to Url
         await driver.get('https://www.google.com');
