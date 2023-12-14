@@ -1,5 +1,9 @@
 node_modules/
 node_modules/*
 node_modules/**/*
-jspm_packages/
-
+cypress/screenshots/
+cypress/screenshots/*
+cypress/screenshots/**/*
+cypress/videos/
+cypress/videos/*
+cypress/videos/**/*
