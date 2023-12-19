@@ -1,4 +1,5 @@
-import { general, navBar, mainPage } from '../support/commands';
+import { faker } from '@faker-js/faker';
+import { navBar, mainPage, signUpPage, singInPage, signInPage } from '../support/commands';
 
 describe('real world io', () => {
     const author = 'Anah';
@@ -29,6 +30,28 @@ describe('real world io', () => {
         });
         mainPage.getArticleTitle().eq(0).should('be.visible').and('not.have.text', '');
         mainPage.getArticleDescription().eq(0).should('be.visible').and('not.have.text', '');
+    });
+
+    it('signup and signin', () => {
+        const signUpUsername = `${faker.internet.userName()}_${Date.now()}`;
+        const signUpEmail = `${signUpUsername}@example.com`;
+        const signUpPassword = '123456';
+    
+        navBar.getSignUpButton().click();
+        cy.waitForNetworkIdle(2000);
+        signUpPage.getUsernameInput().clear().type(signUpUsername);
+        signUpPage.getPasswordInput().clear().type(signUpPassword);
+        signUpPage.getEmailInput().clear().type(signUpEmail);
+        signUpPage.getSignUpButton().click();
+        cy.waitForNetworkIdle(2000);
+        mainPage.getTitle().should('be.visible').and('include.text', 'conduit');
+        navBar.getSignInButton().click();
+        cy.waitForNetworkIdle(2000);
+        signInPage.getEmailInput().clear().type(signUpEmail);
+        signInPage.getPasswordInput().clear().type(signUpPassword);
+        signInPage.getSigninButton().click();
+        cy.waitForNetworkIdle(10000);
+        mainPage.getTitle().should('be.visible').and('include.text', 'conduit');
     });
 });
 
