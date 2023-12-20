@@ -4,7 +4,7 @@
   "description": "A simple cypress example to search and get data from google",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --browser chrome"
+    "test": "mocha 'test/**/*.js' --timeout 30000"
   },
   "keywords": [
     "cypress",
@@ -15,7 +15,9 @@
   "license": "MIT",
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
-    "selenium": "^2.20.0"
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.16.0"
   },
   "types": "./index.d.ts"
 }
