@@ -6,6 +6,8 @@
 // key =  the value , value its location on the array.
 // 
 // element changes its position, update also the hashMap.
+// Delete is still O(n) since we need to find and delete the element.
+// We can improve it, if we use another Map that holds for every key, its index in ketsByDate.
 
 class LRUCache {
     capacity: number;
