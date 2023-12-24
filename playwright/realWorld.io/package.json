@@ -1,0 +1,19 @@
+{
+  "name": "realworld.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.5"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  }
+}
