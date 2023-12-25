@@ -2,16 +2,30 @@ function romanToInt(romanString: string): number {
     let amount = 0;
     for (let i = 0; i < romanString.length; i++) {
         const char = romanString.charAt(i);
+        const charNext = i < romanString.length - 1 ? romanString.charAt(i+1) : null;
+
         if (char === 'I') {
-            amount += 1;
+            if (charNext === 'X' || charNext === 'V') {
+                amount -= 1;
+            } else {
+                amount += 1;
+            }
         } else if (char === 'V') {
             amount += 5;
         } else if (char === 'X') {
-            amount += 10;
+            if (charNext === 'C' || charNext === 'L') {
+                amount -= 10;
+            } else {
+                amount += 10;
+            }
         } else if (char === 'L') {
             amount += 50;
         } else if (char === 'C') {
-            amount += 100;
+            if (charNext === 'M' || charNext === 'D') {
+                amount -= 100;
+            } else {
+                amount += 100;
+            }
         } else if (char === 'D') {
             amount += 500;
         } else if (char === 'M') {
