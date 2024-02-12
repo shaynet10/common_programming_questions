@@ -1,4 +1,6 @@
 # http_request.py
+import json
+
 import requests
 
 
@@ -8,6 +10,7 @@ class HTTP_JSON:
     base_url = ""
     response = ""
     json_response = ""
+    users = ""
 
     def __init__(self, base_url, headers):
         self.base_url = base_url
@@ -16,8 +19,9 @@ class HTTP_JSON:
     def get(self, path):
         url = self.base_url + path
         self.response = requests.get(url)
-        self.json_response = self.response.json()
-        return self.json_response
+        self.json_response = (self.response).json()
+        self.users = self.json_response['data']
+        return self
 
     def post(self, path, data):
         url = self.base_url + path
