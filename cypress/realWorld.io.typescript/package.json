@@ -1,0 +1,28 @@
+{
+  "name": "realworld.io-tests",
+  "version": "1.0.0",
+  "description": "A simple cypress example to search and get data from google",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --browser chrome",
+    "test:ui": "cypress open --browser chrome",
+    "lint": "tsc --noEmit --pretty --allowJs cypress/**/*"
+  },
+  "keywords": [
+    "cypress",
+    "example"
+  ],
+  "author": "Shay Gueta",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "cypress": "^13.6.1",
+    "cypress-extender": "^1.0.35",
+    "cypress-wait-until": "^3.0.1"
+  },
+  "types": "./index.d.ts",
+  "devDependencies": {
+    "cypress-network-idle": "^1.14.2",
+    "typescript": "^5.3.3"
+  }
+}
