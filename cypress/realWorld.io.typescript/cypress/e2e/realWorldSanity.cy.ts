@@ -6,7 +6,7 @@ describe('real world io - sanity', () => {
         openPage.openPageMain();
     });
 
-    it.only('sanity - validate article request', () => {
+    it('sanity - validate article request', () => {
         cy.get<{ response: { statusCode: number } }>('@getArticels')
         .then(data => {
                 const statusCode = data.response.statusCode;
