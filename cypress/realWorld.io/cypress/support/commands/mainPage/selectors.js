@@ -6,3 +6,4 @@ export const articleAuthorUsername = '.page a[ng-bind="$ctrl.article.author.user
 export const articlePublishDate = '.page [ng-bind*="$ctrl.article.createdAt"]';
 export const articleTitle = '.page [ng-bind="$ctrl.article.title"]';
 export const articleDescription = '.page [ng-bind="$ctrl.article.description"]';
+export const articleImage = 'article-preview img';
