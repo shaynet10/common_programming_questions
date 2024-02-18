@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { openPage, navBar, mainPage } from '../support/commands';
 
 describe('real world io - sanity', () => {

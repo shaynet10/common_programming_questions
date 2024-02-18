@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { faker } from '@faker-js/faker';
 import { openPage, navBar, mainPage, signUpPage, signInPage } from '../support/commands';
 
