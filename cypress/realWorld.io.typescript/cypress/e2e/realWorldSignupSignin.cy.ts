@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { openPage, navBar, mainPage, signUpPage, signInPage } from '../support/commands';
+import { openPage, navBar, mainPage, signUpPage, signInPage } from '../support/index';
 
 describe('real world io - signup signin', () => {
     const signUpUsername = `${faker.internet.userName()}_${Date.now()}`;

@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-      "types": ["cypress"],
-      "strict": false,
-      "allowJs": true,
-      "noEmit": true
+  "compilerOptions": {
+      "target": "es6",
+      "lib": ["es6", "dom"],
+      "types": ["cypress", "node"],
+      "moduleResolution": "Node",
     },
-    "include": ["cypress/e2e/model.d.ts", "cypress/e2e/*.ts"],
+    "include": ["**/*.ts"] ,
   }

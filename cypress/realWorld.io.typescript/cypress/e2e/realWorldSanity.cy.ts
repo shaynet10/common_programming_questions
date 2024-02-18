@@ -1,8 +1,17 @@
-import { openPage, navBar, mainPage } from '../support/commands';
+import { openPage, navBar, mainPage, requests } from '../support/index';
 
 describe('real world io - sanity', () => {
     beforeEach(() => {
+        requests.interceptRequestGetArticels();
         openPage.openPageMain();
+    });
+
+    it.only('sanity - validate article request', () => {
+        cy.get<{ response: { statusCode: number } }>('@getArticels')
+        .then(data => {
+                const statusCode = data.response.statusCode;
+                cy.wrap(statusCode).should('eq', 200);
+            });
     });
     
     it('sanity - buttons', () => {

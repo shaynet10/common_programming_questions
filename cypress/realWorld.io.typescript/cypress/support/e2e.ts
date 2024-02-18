@@ -16,4 +16,3 @@
 // Import commands.js using ES2015 syntax:
 import 'cypress-network-idle';
 import 'cypress-wait-until';
-import 'cypress-extender';

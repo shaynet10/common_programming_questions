@@ -1,6 +1,7 @@
-const { defineConfig } = require('cypress')
+import { defineConfig } from 'cypress';
+import { onEvents } from './cypress/plugins/onEvents';
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     testIsolation: false, // Should each test clean cache and session data.
     viewportWidth: 1920,
@@ -10,7 +11,7 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
+      onEvents(on);
     },
   },
 })

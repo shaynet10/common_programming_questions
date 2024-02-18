@@ -1,13 +1,14 @@
-import { isVisible } from 'cypress-extender';
 import * as mainPageSelectors from '../mainPage/selectors';
 import * as signUpPageSelectors from '../signUpPage/selectors';
+import * as requests from '../requests';
 
 const baseUrl = 'https://demo.realworld.io';
-
 const pageLoadedSelectorByPath = {
     '/': mainPageSelectors.articleImage,
     '/#/register': signUpPageSelectors.emailInput,
 };
+
+const isVisible = (selector) => Cypress.$(`${selector}:visible`).length > 0;
 
 export const waitForPageToLoad = (path) => {
     cy.waitUntil(() => isVisible(pageLoadedSelectorByPath[path]), {
@@ -20,9 +21,13 @@ export const waitForPageToLoad = (path) => {
 }
 
 const openPage = (path) => {
+    requests.interceptRequestGetArticels();
     cy.visit(`${baseUrl}${path}`);
     cy.waitForNetworkIdle(2000);
     waitForPageToLoad(path);
+    if (path === '/') {
+        cy.wait('@getArticels');
+    }
 };
 
 export const openPageMain = () => openPage('/');

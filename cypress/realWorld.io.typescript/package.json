@@ -17,7 +17,6 @@
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
     "cypress": "^13.6.1",
-    "cypress-extender": "^1.0.35",
     "cypress-wait-until": "^3.0.1"
   },
   "types": "./index.d.ts",
